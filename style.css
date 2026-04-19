@@ -1,0 +1,275 @@
+
+:root {
+    --sb-green: #00704A; /* Starbucks Green */
+    --sb-light-green: #1e3932; /* Starbucks Dark Green */
+    --sb-gold: #cba258;
+    --bg-color: #f6f8f6;
+    --text-main: #2c2c2c;
+    --text-muted: #666666;
+    --card-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--sb-light-green);
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 6px solid var(--sb-green);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+.main-header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.main-header h1 a:hover {
+    color: var(--sb-gold);
+}
+
+.main-header p {
+    color: #e0e0e0;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.profile, .categories, .visitor-counter {
+    background-color: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,112,74,0.05);
+}
+
+.profile:hover, .categories:hover, .visitor-counter:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,112,74,0.12);
+}
+
+.profile {
+    text-align: center;
+}
+.profile-img {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 4px solid var(--sb-green);
+    width: 120px; height: 120px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.profile:hover .profile-img {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.profile h3 {
+    color: var(--sb-light-green);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+.profile p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.categories h3, .visitor-counter h3 {
+    color: var(--sb-light-green);
+    border-bottom: 2px solid var(--sb-green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.categories ul {
+    list-style: none;
+}
+.categories li {
+    margin-bottom: 0.8rem;
+}
+.categories a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: block;
+    padding: 0.3rem 0;
+}
+.categories a:hover {
+    color: var(--sb-green);
+    padding-left: 8px;
+    font-weight: bold;
+}
+
+.visitor-counter .badge {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Content */
+.content {
+    flex-grow: 1;
+    min-width: 0; /* Prevents overflow in flex child */
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--sb-green);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,112,74,0.1);
+}
+
+.card h2 {
+    color: var(--sb-light-green);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.card .meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card .meta span {
+    background: #e9f0ec;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 700;
+    color: var(--sb-green);
+    font-size: 0.8rem;
+}
+
+.btn-read {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.8rem;
+    background-color: var(--sb-green);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-read:hover {
+    background-color: var(--sb-light-green);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,112,74,0.3);
+}
+
+/* Posts grid for index */
+.section-title {
+    color: var(--sb-light-green);
+    border-bottom: 3px solid var(--sb-green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-item {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid transparent;
+}
+.grid-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,112,74,0.12);
+    border-left: 4px solid var(--sb-green);
+}
+
+.grid-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+.grid-item h3 a {
+    text-decoration: none;
+    color: var(--text-main);
+    transition: color 0.2s;
+}
+.grid-item h3 a:hover {
+    color: var(--sb-green);
+}
+.grid-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+.grid-item .date {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 0;
+    background-color: var(--sb-light-green);
+    color: #a4aeaa;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
